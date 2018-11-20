@@ -41,3 +41,9 @@ RUN mkdir -p /home/${HOST_NAME} \
  && touch /home/${HOST_NAME}/.Xauthority \
  && chown -R ${HOST_NAME}:${HOST_NAME} /home/${HOST_NAME}
 
+ADD utils /tmp/utils
+RUN chown -R ${HOST_NAME}:${HOST_NAME} /tmp/utils \
+ && mv /tmp/utils/.uim.d /home/${HOST_NAME}/ \
+ && rm -rf /tmp/utils
+
+
